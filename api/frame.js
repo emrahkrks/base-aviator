@@ -1,5 +1,8 @@
 export default function handler(req, res) {
-  res.status(200).json({
-    message: "Frame working"
+  res.setHeader("Content-Type", "application/json");
+
+  return res.status(200).json({
+    message: "Frame working",
+    ok: true
   });
 }
