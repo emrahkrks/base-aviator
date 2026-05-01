@@ -1,8 +1,8 @@
-export default function handler(req, res) {
+module.exports = (req, res) => {
   res.setHeader("Content-Type", "application/json");
 
-  return res.status(200).json({
+  res.status(200).json({
     message: "Frame working",
     ok: true
   });
-}
+};
