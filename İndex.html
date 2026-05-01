@@ -1,0 +1,63 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  
+  <title>Base Aviator</title>  
+  
+  <!-- Open Graph -->  
+  <meta property="og:title" content="Base Aviator" />  
+  <meta property="og:description" content="Simple Aviator Game on Base" />  
+  <meta property="og:image" content="https://placehold.co/1200x630/png" />  
+  <meta property="og:url" content="https://your-app.vercel.app" />  
+  
+  <!-- Farcaster Frame -->  
+  <meta property="fc:frame" content="vNext" />  
+  <meta property="fc:frame:image" content="https://placehold.co/1200x630/png" />  
+  <meta property="fc:frame:button:1" content="Play" />  
+  <meta property="fc:frame:post_url" content="https://your-app.vercel.app/api/frame" />  
+  
+  <style>  
+    body {  
+      background: black;  
+      color: white;  
+      text-align: center;  
+      font-family: Arial;  
+    }  
+    button {  
+      padding: 15px;  
+      font-size: 20px;  
+    }  
+  </style>  
+</head>  
+<body>  
+  
+  <h1>✈️ Base Aviator</h1>  
+  <p>Multiplier: <span id="multiplier">1.00</span>x</p>  
+  <button onclick="startGame()">Start</button>  
+  
+  <script>  
+    let value = 1;  
+    let running = false;  
+  
+    function startGame() {  
+      if (running) return;  
+      running = true;  
+      value = 1;  
+  
+      const interval = setInterval(() => {  
+        value += 0.05;  
+        document.getElementById("multiplier").innerText = value.toFixed(2);  
+  
+        if (Math.random() < 0.02) {  
+          alert("💥 Crashed at " + value.toFixed(2) + "x");  
+          running = false;  
+          clearInterval(interval);  
+        }  
+      }, 100);  
+    }  
+  </script>  
+  
+</body>  
+</html>  
